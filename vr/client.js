@@ -8,6 +8,7 @@ import {VRInstance} from 'react-vr-web';
 function init(bundle, parent, options) {
   const vr = new VRInstance(bundle, 'model_test', parent, {
     // Add custom options here
+    // 'initialProps': {onEnterVR},
     ...options,
   });
   vr.render = function() {
