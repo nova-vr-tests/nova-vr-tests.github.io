@@ -18,6 +18,7 @@ const model = {
   EARTH: 1,
   MOON: 2,
 }
+
 export default class model_test extends React.Component {
   constructor(scene) {
     super();
@@ -86,39 +87,9 @@ export default class model_test extends React.Component {
     return "hide " + textEnd;
   }
 
-  render() {
-    const scaling = 90 //* Math.abs(Math.sin(this.state.rotation * Math.PI / 180));
-
+  getModels() {
     return (
-      <Scene>
       <View>
-        <AmbientLight intensity={ 2.6 }  />
-        <VrButton 
-          onClick={ this.changeModel } >
-          <View
-            style={{
-              backgroundColor: 'red',
-              height: 0.3,
-              width: 1,
-              transform: [
-                {translate: [0.5, 1, -2]},
-              ]
-            }}>
-              <Text>{ this.getButtonLabel() }</Text>
-          </View>
-        </VrButton>
-        <Model 
-          style={{ 
-            transform: [ 
-              {translate: [10, 10, -100]}, 
-              {scale: 0.05},
-            ], 
-          }} 
-          source={{
-            obj:asset('city/The City.obj'), 
-            mtl:asset('city/The_City.mtl'), 
-          }} 
-          lit={true} />
         <Model
           source={{
             obj: asset('unilever/unilever.obj')
@@ -159,6 +130,44 @@ export default class model_test extends React.Component {
           source={{
             obj:asset('moon/moon.obj'), 
             mtl:asset('moon/moon.mtl')
+          }} 
+          lit={true} />
+        </View>
+    )
+  }
+
+  render() {
+    const scaling = 90 //* Math.abs(Math.sin(this.state.rotation * Math.PI / 180));
+
+    return (
+      <Scene>
+      <View>
+        <AmbientLight intensity={ 2.6 }  />
+        <VrButton 
+          onClick={ this.changeModel } >
+          <View
+            style={{
+              backgroundColor: 'red',
+              height: 0.3,
+              width: 1,
+              transform: [
+                {translate: [0.5, 1, -2]},
+              ]
+            }}>
+              <Text>{ this.getButtonLabel() }</Text>
+          </View>
+        </VrButton>
+        <Model 
+          style={{ 
+            transform: [ 
+              {translate: [10, 10, -100]}, 
+              {rotateX: 45},
+              {scale: 0.05},
+            ], 
+          }} 
+          source={{
+            obj:asset('city/The City.obj'), 
+            mtl:asset('city/The_City.mtl'), 
           }} 
           lit={true} />
       </View>
