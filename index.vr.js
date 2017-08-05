@@ -13,6 +13,9 @@ import {
   VrButton,
 } from 'react-vr';
 
+import CGs from "./static_assets/unilever_logo/gravity.js";
+console.log(CGs)
+
 const model = {
   LOGO: 0,
   EARTH: 1,
@@ -28,14 +31,15 @@ export default class model_test extends React.Component {
     this.state = {
       rotation: 130,
       model: model.LOGO,
+      scale: 0.1,
     };
 
     this.lastUpdate = Date.now();
 
 
     this.rotate = this.rotate.bind(this);
-    this.changeModel = this.changeModel.bind(this);
-    this.getButtonLabel = this.getButtonLabel.bind(this);
+    this.getModel = this.getModel.bind(this);
+    this.getAllModels = this.getAllModels.bind(this);
   }
 
   componentDidMount() {
@@ -55,130 +59,52 @@ export default class model_test extends React.Component {
     this.lastUpdate = now;
 
     this.setState({
-      rotation: this.state.rotation + delta / 150,
+      scale: this.state.scale + 1/100,
     })
 
-    this.frameHandle = requestAnimationFrame(this.rotate);
+    if (this.state.scale < 1)
+      this.frameHandle = requestAnimationFrame(this.rotate);
   }
 
-  changeModel(e) {
-    if (this.state.model >= model.MOON)
-      this.setState({ model: model.LOGO })
-    else
-      this.setState({ model: this.state.model + 1})
-  }
+  getModel(model_number = 1, scale = 1){
+    const CG = CGs[model_number];
+    const CG_translate = CG.map(e => e*(1-scale));
+    const translateZ = -10;
+    const translate = CG_translate;
+    translate[2] += translateZ;
 
-  getButtonLabel() {
-    var textEnd = "";
-    switch (this.state.model) {
-      case model.EARTH:
-        textEnd = 'earth';
-        break;
-      case model.MOON:
-        textEnd = 'moon';
-        break;
-      case model.LOGO:
-        textEnd = 'logo';
-        break;
-      default:
-        textEnd = 'error';
-    }
-
-    return "hide " + textEnd;
-  }
-
-  getModels() {
     return (
-      <View>
+      <View key={ model_number }>
+        <AmbientLight />
         <Model
           source={{
-            obj: asset('unilever/unilever.obj')
+            obj: asset('unilever_logo/' + model_number + '.obj'),
           }}
           lit={ true }
           style={{
+            color: 'red',
             transform: [
-              {translate: [-1, 0, -50]},
-              {scale: scaling === 0 || this.state.model !== model.LOGO ? 0.001 : scaling},
-              {rotateX: 90},
-              {rotateZ: this.state.rotation * 4},
+              {translate},
+              {scale}
             ]
           }}
         />
-        <Model 
-          source={{ 
-            obj: asset('earth/earth.obj'),
-            mtl: asset('earth/earth.mtl'),
-          }} 
-          lit={ true }
-          style={{
-            transform: [
-              {translate: [-25, 0, -70]},
-              {scale: this.state.model === model.EARTH ? 0.05 : 0.0001 },
-              {rotateY: this.state.rotation},
-              {rotateX: 20},
-              {rotateZ: -10}
-            ],
-          }}
-        />
-        <Model 
-          style={{ 
-            transform: [ 
-              {translate: [10, 10, -100]}, 
-              {scale: this.state.model === model.MOON ? 0.05 : 0.0001 },
-            ], 
-          }} 
-          source={{
-            obj:asset('moon/moon.obj'), 
-            mtl:asset('moon/moon.mtl')
-          }} 
-          lit={true} />
-        </View>
+      </View>
     )
   }
 
-  render() {
-    const scaling = 90 //* Math.abs(Math.sin(this.state.rotation * Math.PI / 180));
+  getAllModels() {
+    const modelNames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26];
+    const models = modelNames.map(e => this.getModel(e, this.state.scale));
 
+    return <View>{ models }</View>
+  }
+
+  render() {
     return (
       <Scene>
-      <View>
-        <AmbientLight intensity={ 2.6 }  />
-        <VrButton 
-          onClick={ this.changeModel } >
-          <View
-            style={{
-              backgroundColor: 'red',
-              height: 0.3,
-              width: 1,
-              transform: [
-                {translate: [0.5, 1, -2]},
-              ]
-            }}>
-              <Text>{ this.getButtonLabel() }</Text>
-          </View>
-        </VrButton>
-        <Model 
-          style={{ 
-            layoutOrigin: [0,0,0],
-            transform: [ 
-              {translate: [0,-10,0]},
-              {rotateX: 45},
-              {scale: 0.05},
-            ], 
-          }} 
-          source={{
-            obj:asset('city/The City.obj'), 
-            mtl:asset('city/The_City.mtl'), 
-          }} 
-          lit={true} />
-          <Sphere
-            radius={5}
-            lit={true}
-            style={{
-              layoutOrigin: [0,0]
-            }}
-          />
-      </View>
+        <AmbientLight />
+        { this.getAllModels() }
       </Scene>
     );
   }
