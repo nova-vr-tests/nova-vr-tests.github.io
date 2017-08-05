@@ -14,13 +14,6 @@ import {
 } from 'react-vr';
 
 import CGs from "./static_assets/unilever_logo/gravity.js";
-console.log(CGs)
-
-const model = {
-  LOGO: 0,
-  EARTH: 1,
-  MOON: 2,
-}
 
 export default class model_test extends React.Component {
   constructor(scene) {
@@ -29,21 +22,16 @@ export default class model_test extends React.Component {
     this.scene = scene;
     
     this.state = {
-      rotation: 130,
-      model: model.LOGO,
-      scale: 0.1,
+      scale: 0.01,
     };
 
-    this.lastUpdate = Date.now();
-
-
-    this.rotate = this.rotate.bind(this);
+    this.animate = this.animate.bind(this);
     this.getModel = this.getModel.bind(this);
     this.getAllModels = this.getAllModels.bind(this);
   }
 
   componentDidMount() {
-    this.rotate();
+    this.animate();
   }
 
   componentWillUnmount() {
@@ -53,25 +41,26 @@ export default class model_test extends React.Component {
     }
   }
   
-  rotate() {
-    const now = Date.now();
-    const delta = now - this.lastUpdate;
-    this.lastUpdate = now;
-
+  animate() {
     this.setState({
-      scale: this.state.scale + 1/100,
+      scale: this.state.scale + 1/200,
     })
 
     if (this.state.scale < 1)
-      this.frameHandle = requestAnimationFrame(this.rotate);
+      this.frameHandle = requestAnimationFrame(this.animate);
   }
 
   getModel(model_number = 1, scale = 1){
-    const CG = CGs[model_number];
+    // Copy CGs
+    const CG = [...CGs[model_number]];
+    const CGtemp = [...CG];
+
+    // Handle axis to match react's
+    CG[1] = CGtemp[2];
+    CG[2] = CGtemp[1];
+
+    // Calculate distance between original and translated CGs
     const CG_translate = CG.map(e => e*(1-scale));
-    const translateZ = -10;
-    const translate = CG_translate;
-    translate[2] += translateZ;
 
     return (
       <View key={ model_number }>
@@ -84,7 +73,7 @@ export default class model_test extends React.Component {
           style={{
             color: 'red',
             transform: [
-              {translate},
+              {translate: CG_translate},
               {scale}
             ]
           }}
@@ -94,10 +83,29 @@ export default class model_test extends React.Component {
   }
 
   getAllModels() {
-    const modelNames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26];
+    const modelNames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
     const models = modelNames.map(e => this.getModel(e, this.state.scale));
 
-    return <View>{ models }</View>
+    return (
+      <View
+        style={{
+          transform: [
+            {translate: [0,0,-10]},
+          ],
+        }} 
+      >
+        { models }
+        <Model
+          source={{
+            obj: asset('unilever_logo/0.obj'),
+          }}
+          lit={ true }
+          style={{
+            color: 'red',
+          }}
+        />
+      </View>
+    )
   }
 
   render() {
