@@ -159,8 +159,9 @@ export default class model_test extends React.Component {
         </VrButton>
         <Model 
           style={{ 
+            layoutOrigin: [0,0,0],
             transform: [ 
-              {translate: [10, 10, -100]}, 
+              {translate: [0,-10,0]},
               {rotateX: 45},
               {scale: 0.05},
             ], 
@@ -170,6 +171,13 @@ export default class model_test extends React.Component {
             mtl:asset('city/The_City.mtl'), 
           }} 
           lit={true} />
+          <Sphere
+            radius={5}
+            lit={true}
+            style={{
+              layoutOrigin: [0,0]
+            }}
+          />
       </View>
       </Scene>
     );
