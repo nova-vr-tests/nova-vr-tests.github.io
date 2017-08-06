@@ -13,7 +13,6 @@ import {
   VrButton,
 } from 'react-vr';
 
-import CGs from "./static_assets/unilever_logo/gravity.js";
 
 export default class Translatelogo extends React.Component {
   constructor(scene) {
@@ -43,7 +42,7 @@ export default class Translatelogo extends React.Component {
   
   animate() {
     this.setState({
-      t: this.state.t + 1/20,
+      t: this.state.t + 1/10,
     })
 
     if (this.state.t < 0)
@@ -52,7 +51,7 @@ export default class Translatelogo extends React.Component {
 
   getModel(model_number = 1){
     // Copy CGs
-    const CG = [...CGs[model_number]];
+    const CG = [...this.props.CGs[model_number]];
     const CGtemp = [...CG];
 
     // Handle axis to match react's
@@ -60,7 +59,7 @@ export default class Translatelogo extends React.Component {
     CG[2] = CGtemp[1];
 
     // Translate through
-    const origin = [0,0,0];
+    const origin = [0,0,2];
 
     // Direction vector
     const dirVect = origin.map((e,i) => e - CG[i]);
@@ -88,14 +87,14 @@ export default class Translatelogo extends React.Component {
   }
 
   getAllModels() {
-    const modelNames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
+    const modelNames = this.props.modelNames;
     const models = modelNames.map(e => this.getModel(e));
 
     return (
       <View
         style={{
           transform: [
-            {translate: [0,0,-10]},
+            {translate: [0,-2,-10]},
           ],
         }} 
       >
@@ -107,6 +106,9 @@ export default class Translatelogo extends React.Component {
           lit={ true }
           style={{
             color: 'red',
+            transform: [
+              {translate: [0,-1,0]},
+            ],
           }}
         />
       </View>
