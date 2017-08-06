@@ -26,7 +26,7 @@ export default class TranslateRotateLogo extends React.Component {
     this.scene = scene;
     
     this.state = {
-      t: -15,
+      t: -95,
       alpha: 0,
     };
 
@@ -48,11 +48,12 @@ export default class TranslateRotateLogo extends React.Component {
   
   animate() {
     this.setState({
-      t: this.state.t - this.state.t * 1/10,
+      t: this.state.t - this.state.t * 1/20,
       alpha: this.state.alpha + 5,
     })
 
-    if (this.state.t < 0 && this.state.alpha < 180)
+    // if (this.state.t < 0 && this.state.alpha < 180)
+    // if (this.state.alpha < 360)
       this.frameHandle = requestAnimationFrame(this.animate);
   }
 
@@ -66,14 +67,14 @@ export default class TranslateRotateLogo extends React.Component {
     CG[2] = CGtemp[1];
 
     // Translate through
-    const origin = [0,0,2];
+    const origin = [0,1.31768,0];
 
     // Direction vector
     const dirVect = origin.map((e,i) => e - CG[i]);
 
     // Parametrized line
     let transform = addTransforms([
-      localRotateZ(this.state.alpha, CG),
+      // localRotateZ(this.state.alpha, CG),
       translateThruLine(origin, dirVect, this.state.t),
     ]);
 
@@ -102,7 +103,7 @@ export default class TranslateRotateLogo extends React.Component {
       <View
         style={{
           transform: [
-            {translate: [0,-2,-10]},
+            {translate: [0,-9,-20]},
           ],
         }} 
       >
@@ -113,9 +114,8 @@ export default class TranslateRotateLogo extends React.Component {
           }}
           lit={ true }
           style={{
-            color: 'red',
             transform: [
-              {translate: [0,-1,0]},
+              {translate: [0,1,0]},
             ],
           }}
         />
