@@ -14,17 +14,17 @@ import {
 } from 'react-vr';
 
 import { 
-  translateThruLine,
+  localRotateZ,
 } from './linearTransforms'
 
-export default class Translatelogo extends React.Component {
+export default class Zoomlogo extends React.Component {
   constructor(scene) {
     super();
 
     this.scene = scene;
     
     this.state = {
-      t: -15,
+      scale: 0.01,
     };
 
     this.animate = this.animate.bind(this);
@@ -45,13 +45,14 @@ export default class Translatelogo extends React.Component {
   
   animate() {
     this.setState({
-      t: this.state.t - this.state.t * 1/10,
+      scale: this.state.scale + 1/200,
     })
 
-    if (this.state.t < 0)
+    if (this.state.scale < 1)
       this.frameHandle = requestAnimationFrame(this.animate);
   }
 
+  // Local rotationg in global coordinates
   getModel(model_number = 1){
     // Copy CGs
     const CG = [...this.props.CGs[model_number]];
@@ -61,14 +62,10 @@ export default class Translatelogo extends React.Component {
     CG[1] = CGtemp[2];
     CG[2] = CGtemp[1];
 
-    // Translate through
-    const origin = [0,0,2];
 
-    // Direction vector
-    const dirVect = origin.map((e,i) => e - CG[i]);
-
-    // Parametrized line
-    const transform = translateThruLine(origin, dirVect, this.state.t);
+    // Rotate by
+    const alpha = 100;
+    const transform = localRotateZ(alpha, CG);
 
     return (
       <View key={ model_number }>
@@ -95,7 +92,7 @@ export default class Translatelogo extends React.Component {
       <View
         style={{
           transform: [
-            {translate: [0,-2,-10]},
+            {translate: [0,0,-10]},
           ],
         }} 
       >
@@ -107,9 +104,6 @@ export default class Translatelogo extends React.Component {
           lit={ true }
           style={{
             color: 'red',
-            transform: [
-              {translate: [0,-1,0]},
-            ],
           }}
         />
       </View>

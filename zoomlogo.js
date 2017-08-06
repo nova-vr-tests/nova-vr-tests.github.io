@@ -13,6 +13,10 @@ import {
   VrButton,
 } from 'react-vr';
 
+import { 
+  localScale,
+} from './linearTransforms'
+
 export default class Zoomlogo extends React.Component {
   constructor(scene) {
     super();
@@ -59,7 +63,7 @@ export default class Zoomlogo extends React.Component {
     CG[2] = CGtemp[1];
 
     // Calculate distance between original and translated CGs
-    const CG_translate = CG.map(e => e*(1-scale));
+    const transform = localScale(scale, CG);
 
     return (
       <View key={ model_number }>
@@ -71,10 +75,7 @@ export default class Zoomlogo extends React.Component {
           }}
           lit={ true }
           style={{
-            transform: [
-              {translate: CG_translate},
-              {scale}
-            ]
+            transform
           }}
         />
       </View>

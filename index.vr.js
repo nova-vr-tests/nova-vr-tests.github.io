@@ -14,7 +14,9 @@ import {
 } from 'react-vr';
 
 import Zoomlogo from './zoomlogo';
+import Rotatelogo from './rotatelogo';
 import Translatelogo from './translatelogo';
+import TranslateRotateLogo from './translateRotateLogo';
 import CGs from "./static_assets/unilever_logo/gravity.js";
 
 export default class Unilever extends React.Component {
@@ -30,7 +32,9 @@ export default class Unilever extends React.Component {
   render() {
     return (
       // <Zoomlogo modelNames={ this.modelNames } CGs={ this.CGs } />
-      <Translatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      // <Translatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      <TranslateRotateLogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      // <Rotatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
     );
   }
 };
