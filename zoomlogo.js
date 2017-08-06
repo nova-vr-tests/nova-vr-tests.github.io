@@ -48,6 +48,7 @@ export default class Zoomlogo extends React.Component {
       this.frameHandle = requestAnimationFrame(this.animate);
   }
 
+  // Local scaling in global coordinates
   getModel(model_number = 1, scale = 1){
     // Copy CGs
     const CG = [...this.props.CGs[model_number]];
