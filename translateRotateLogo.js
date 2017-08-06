@@ -114,6 +114,7 @@ export default class TranslateRotateLogo extends React.Component {
           }}
           lit={ true }
           style={{
+            color: '#00008b',
             transform: [
               {translate: [0,1,0]},
             ],
