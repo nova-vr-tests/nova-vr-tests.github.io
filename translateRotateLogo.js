@@ -15,9 +15,11 @@ import {
 
 import { 
   translateThruLine,
+  localRotateZ,
+  addTransforms,
 } from './linearTransforms'
 
-export default class Translatelogo extends React.Component {
+export default class TranslateRotateLogo extends React.Component {
   constructor(scene) {
     super();
 
@@ -25,6 +27,7 @@ export default class Translatelogo extends React.Component {
     
     this.state = {
       t: -15,
+      alpha: 0,
     };
 
     this.animate = this.animate.bind(this);
@@ -46,9 +49,10 @@ export default class Translatelogo extends React.Component {
   animate() {
     this.setState({
       t: this.state.t - this.state.t * 1/10,
+      alpha: this.state.alpha + 5,
     })
 
-    if (this.state.t < 0)
+    if (this.state.t < 0 && this.state.alpha < 180)
       this.frameHandle = requestAnimationFrame(this.animate);
   }
 
@@ -68,7 +72,10 @@ export default class Translatelogo extends React.Component {
     const dirVect = origin.map((e,i) => e - CG[i]);
 
     // Parametrized line
-    const transform = translateThruLine(origin, dirVect, this.state.t);
+    let transform = addTransforms([
+      localRotateZ(this.state.alpha, CG),
+      translateThruLine(origin, dirVect, this.state.t),
+    ]);
 
     return (
       <View key={ model_number }>
