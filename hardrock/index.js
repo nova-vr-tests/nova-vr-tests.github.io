@@ -14,6 +14,9 @@ import {
   VrButton,
 } from 'react-vr';
 
+import Page1 from './page1'
+import Page2 from './page2'
+
 export default class Hardrock extends React.Component {
   constructor(scene) {
     super();
@@ -35,7 +38,18 @@ export default class Hardrock extends React.Component {
     return (
       <Scene>
         <AmbientLight />
-         {/* <Pano source={asset('chess-world.jpg')}/>  */}
+        <Pano source={asset('hardrock/bg.jpg')} />  
+        <Page1 
+            transform={[
+                {translate: [0.5,1.3,-3]}
+            ]}
+        />
+        <Page2 
+            transform={[
+                {translate: [2,2,-0.7]},
+                {rotateY: 270}
+            ]}
+        />
         <Sphere
             style={{
                 color: 'white',
