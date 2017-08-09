@@ -59,8 +59,8 @@ export default class Hardrock extends React.Component {
             }}
             radius={500}
             lit={true}
-            heightSegments={5000}
-            widthSegments={500}
+            heightSegments={50}
+            widthSegments={50}
         />
       </Scene>
     );
