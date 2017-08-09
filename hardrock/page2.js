@@ -90,7 +90,7 @@ because at the end of the day it's what makes the difference."
                 >
                     <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start', paddingRight: 0.1 }}>
                         <Image 
-                            source={require('../static_assets/hardrock/page2/1.png')} 
+                            source={asset("hardrock/page2/1.png")}
                             style={{
                                 width: 1,
                                 height: 1,
@@ -100,7 +100,7 @@ because at the end of the day it's what makes the difference."
                     </View>
                     <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'flex-end', paddingLeft: 0.1 }}>
                         <Image 
-                            source={require('../static_assets/hardrock/page2/1.png')} 
+                            source={asset("hardrock/page2/1.png")}
                             style={{
                                 width: 1,
                                 height: 1,
@@ -117,7 +117,7 @@ because at the end of the day it's what makes the difference."
                     }}
                 >
                     <Image 
-                        source={require('../static_assets/hardrock/page2/1.png')} 
+                        source={asset("hardrock/page2/1.png")}
                         style={{
                             width: 1,
                             height: 1,
