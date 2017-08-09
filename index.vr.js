@@ -19,6 +19,8 @@ import Translatelogo from './translatelogo';
 import TranslateRotateLogo from './translateRotateLogo';
 import CGs from "./static_assets/unilever_logo/gravity.js";
 
+import Hardrock from "./hardrock"
+
 export default class Unilever extends React.Component {
   constructor(scene) {
     super();
@@ -33,8 +35,10 @@ export default class Unilever extends React.Component {
     return (
       // <Zoomlogo modelNames={ this.modelNames } CGs={ this.CGs } />
       // <Translatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
-      <TranslateRotateLogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      // <TranslateRotateLogo modelNames={ this.modelNames } CGs={ this.CGs } />
       // <Rotatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
+
+      <Hardrock />
     );
   }
 };
