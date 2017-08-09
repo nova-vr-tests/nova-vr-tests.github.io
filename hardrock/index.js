@@ -46,7 +46,7 @@ export default class Hardrock extends React.Component {
         />
         <Page2 
             transform={[
-                {translate: [2,3,-0.7]},
+                {translate: [1,3,0.7]},
                 {rotateY: 270}
             ]}
         />
@@ -54,7 +54,7 @@ export default class Hardrock extends React.Component {
             style={{
                 color: 'white',
                 transform: [
-                    {translate: [0,-501.8,0]},
+                    {translate: [0,-502,0]},
                 ]
             }}
             radius={500}

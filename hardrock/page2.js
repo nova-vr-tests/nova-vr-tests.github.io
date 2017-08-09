@@ -75,6 +75,9 @@ because at the end of the day it's what makes the difference."
             <View
                 style={{
                     flex: 1,
+                    transform: [
+                        {translate: [0.2,0,0]}
+                    ]
                 }}
             >
                 <View
