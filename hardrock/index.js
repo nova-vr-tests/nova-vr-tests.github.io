@@ -46,7 +46,7 @@ export default class Hardrock extends React.Component {
         />
         <Page2 
             transform={[
-                {translate: [2,2,-0.7]},
+                {translate: [2,3,-0.7]},
                 {rotateY: 270}
             ]}
         />
