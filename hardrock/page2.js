@@ -94,7 +94,7 @@ all inclusive, while millions enjoyed vicariously. The program earned more than 
                     </View>
                     <View style={{ flex: 1, justifyContent: 'flex-end', paddingLeft: 0.05}}>
                         <Image 
-                            source={asset("hardrock/page2/1.png")}
+                            source={asset("hardrock/page2/2.png")}
                             style={{
                                 width: 1,
                                 height: 1,
@@ -111,7 +111,7 @@ all inclusive, while millions enjoyed vicariously. The program earned more than 
                     }}
                 >
                     <Image 
-                        source={asset("hardrock/page2/1.png")}
+                        source={asset("hardrock/page2/3.png")}
                         style={{
                             width: 1,
                             height: 1,
