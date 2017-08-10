@@ -14,7 +14,7 @@ import {
   Box,
 } from 'react-vr';
 
-import Paragraph from './paragraph'
+import { Paragraph } from './UI'
 
 export default class Page1 extends React.Component {
   constructor(scene) {
