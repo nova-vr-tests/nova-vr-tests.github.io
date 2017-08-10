@@ -35,9 +35,9 @@ export default class Page2 extends React.Component {
   }
   
   render() {
-    const text="This is a major need for us to have a cloth look to numbers, \
-because at the end of the day it's what makes the difference."
-
+    const text="Over the weekend hundreds lived life to the fullest via Hard Rock's \
+all inclusive, while millions enjoyed vicariously. The program earned more than \
+85 million impressions on social media, alone."
     return (
         <View
             style={{
@@ -78,11 +78,11 @@ because at the end of the day it's what makes the difference."
                     style={{
                        flex: 1, 
                        flexDirection: 'row',
-                       height: 1.8,
-                       paddingBottom: 0.2,
+                       height: 1.6,
+                       paddingBottom: 0.1,
                     }}
                 >
-                    <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'flex-start', paddingRight: 0.1 }}>
+                    <View style={{ flex: 1, justifyItems: 'flex-start', alignItems: 'flex-end', paddingRight: 0.05 }}>
                         <Image 
                             source={asset("hardrock/page2/1.png")}
                             style={{
@@ -92,7 +92,7 @@ because at the end of the day it's what makes the difference."
                             }}
                         />
                     </View>
-                    <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'flex-end', paddingLeft: 0.1 }}>
+                    <View style={{ flex: 1, justifyContent: 'flex-end', paddingLeft: 0.05}}>
                         <Image 
                             source={asset("hardrock/page2/1.png")}
                             style={{

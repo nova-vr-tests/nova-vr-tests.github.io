@@ -68,13 +68,13 @@ export default class Hardrock extends React.Component {
         />
         <Page2 
             transform={[
-                {translate: [1,3,0.7]},
+                {translate: [1,4.4,0.7]},
                 {rotateY: 270}
             ]}
         />
         <Map 
             transform={[
-                {translate: [-4.5, 6.2, 0]},
+                {translate: [-4.5, 6.5, 0]},
                 {rotateY: 90},
                 {scale: 0.5},
             ]}
