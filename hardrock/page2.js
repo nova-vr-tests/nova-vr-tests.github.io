@@ -82,7 +82,7 @@ all inclusive, while millions enjoyed vicariously. The program earned more than 
                        paddingBottom: 0.1,
                     }}
                 >
-                    <View style={{ flex: 1, justifyItems: 'flex-start', alignItems: 'flex-end', paddingRight: 0.05 }}>
+                    <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'flex-end', paddingRight: 0.05 }}>
                         <Image 
                             source={asset("hardrock/page2/1.png")}
                             style={{
