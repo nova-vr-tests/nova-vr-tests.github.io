@@ -59,6 +59,7 @@ export default class Unilever extends React.Component {
     this.state = {
       opacity1: 1,
       opacity2: -1,
+      timer: 0,
     };
 
   }
@@ -75,10 +76,14 @@ export default class Unilever extends React.Component {
   }
 
   animate() {
-    this.setState({
-      opacity1: this.state.opacity1 - 1/200,
-      opacity2: this.state.opacity2 + 1/200,
-    });
+    if(this.state.timer < 1000) {
+      this.setState({ timer: this.state.timer + 10 });
+    } else {
+      this.setState({
+        opacity1: this.state.opacity1 - 1/20,
+        opacity2: this.state.opacity2 + 1/20,
+      });
+    }
 
     if (this.state.opacity2 <= 1)
       this.frameHandle = requestAnimationFrame(this.animate);
