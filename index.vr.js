@@ -90,7 +90,6 @@ export default class Unilever extends React.Component {
   }
 
   render() {
-    console.log(this.state.opacity1, this.state.opacity2)
     return (
       // <Zoomlogo modelNames={ this.modelNames } CGs={ this.CGs } />
       // <Translatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
