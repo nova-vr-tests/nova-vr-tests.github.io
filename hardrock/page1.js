@@ -54,7 +54,7 @@ could handle..."
                     fontSize: 0.2,
                 }} 
             >
-                Implication in music
+                Implication in musicCC
             </Text>          
             <Text
                 style={{

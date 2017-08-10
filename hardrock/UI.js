@@ -1,4 +1,4 @@
-import Reac from 'react';
+import React from 'react';
 import {
   AppRegistry,
   asset,
@@ -65,7 +65,7 @@ const Paragraph = props => (
                     fontSize: 0.07,
                 }}
             >
-                {this.props.main}
+                {props.main}
             </Text>
         </View>
         <View
@@ -86,12 +86,12 @@ const Paragraph = props => (
                 <Text
                     style={{ textAlign: 'center', fontSize: 0.05 }} 
                 >
-                    {this.props.kpi[0][0]}
+                    {props.kpi[0][0]}
                 </Text>
                 <Text
                     style={{ textAlign: 'center', fontSize: 0.05 }} 
                 >
-                    {this.props.kpi[0][1]}
+                    {props.kpi[0][1]}
                 </Text>
             </View>
             <View style={{
@@ -104,12 +104,12 @@ const Paragraph = props => (
                 <Text
                     style={{ textAlign: 'center', fontSize: 0.05 }} 
                 >
-                    {this.props.kpi[1][0]}
+                    {props.kpi[1][0]}
                 </Text>
                 <Text
                     style={{ textAlign: 'center', fontSize: 0.05 }} 
                 >
-                    {this.props.kpi[1][1]}
+                    {props.kpi[1][1]}
                 </Text>
             </View>
             <View style={{
@@ -123,12 +123,12 @@ const Paragraph = props => (
                 <Text
                     style={{ textAlign: 'center', fontSize: 0.05 }} 
                 >
-                    {this.props.kpi[2][0]}
+                    {props.kpi[2][0]}
                 </Text>
                 <Text
                     style={{ textAlign: 'center', fontSize: 0.05 }} 
                 >
-                    {this.props.kpi[2][1]}
+                    {props.kpi[2][1]}
                 </Text>
             </View>
         </View>

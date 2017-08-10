@@ -19,7 +19,7 @@ import Translatelogo from './translatelogo';
 import TranslateRotateLogo from './translateRotateLogo';
 import CGs from "./static_assets/unilever_logo/gravity.js";
 
-import Hardrock from "./hardrock"
+import Hardrock from "./hardrock/index"
 
 export default class Unilever extends React.Component {
   constructor(scene) {

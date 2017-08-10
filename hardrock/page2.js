@@ -15,7 +15,7 @@ import {
   Image,
 } from 'react-vr';
 
-import { Paragrap } from './UI'
+import { Paragraph } from './UI'
 
 export default class Page2 extends React.Component {
   constructor(scene) {
