@@ -14,7 +14,7 @@ import {
   Box,
 } from 'react-vr';
 
-import { Paragraph } from './UI'
+import { Paragraph, Title1, Title2 } from './UI'
 
 export default class Page1 extends React.Component {
   constructor(scene) {
@@ -37,7 +37,7 @@ export default class Page1 extends React.Component {
     const text="Live from Mexico we broadcasted a weekend of dysfunctinal familly \
 fun to 63 million people. Live music performance from Nick Jonas and \
 Brett Michaels, all the beach, spa and partying anyone person \
-could handle..."
+could handle."
 
     return (
         <View
@@ -45,28 +45,18 @@ could handle..."
                 transform: this.props.transform,
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: 1.8,
+                width: 2.0,
             }} 
         >
-            <Text
-                style={{
-                    color: 'white',
-                    fontSize: 0.2,
-                }} 
-            >
-                Implication in musicCC
-            </Text>          
-            <Text
-                style={{
-                    color: 'white',
-                    marginBottom: 0.07,
-                    marginTop: 0.09,
-                }} 
-            >
-                Elvis rocks Mexico - Riviera Maya
-            </Text>          
+            <Title1>
+                Elvis Rock Mexico
+            </Title1>          
+            <Title2>
+                Hard Rock Hotel
+            </Title2>          
 
             <Paragraph 
+                bg={false}
                 main={text}
                 kpi={[
                     ["280 thousands", "contest entries"],

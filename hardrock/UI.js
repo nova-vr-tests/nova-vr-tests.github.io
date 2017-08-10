@@ -22,31 +22,42 @@ const Title1 = props => (
     <Text
         style={{
             color: 'white',
-            fontSize: 0.2,
+            fontWeight: 'bold',
+            fontSize: 0.25,
+            transform: [
+                {translate: [0.1, 0.2, -1]},
+            ],
+            marginBottom: 0.2,
         }}
     >
-        { this.props.text }
+        { props.children}
     </Text>
 );
 
 Title1.defaultProps = {
-    text: "",
+    children: "",
 }
 
 const Title2 = props => (
     <Text
         style={{
             color: 'white',
+            fontWeight: 'bold',
+            fontSize: 0.15,
             marginBottom: 0.07,
             marginTop: 0.09,
+            transform: [
+                {translate: [-0.5, 0.1, -0.5]},
+            ],
+            marginBottom: 0.2,
         }}
     >
-        { this.props.text }
+        { props.children }
     </Text>
 );
 
 Title2.defaultProps = {
-    text: "",
+    children: "",
 }
 
 const Paragraph = props => (
@@ -56,13 +67,13 @@ const Paragraph = props => (
     >
         <View
             style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backgroundColor: 'rgba(255, 255, 255,' + (props.bg ? '0.1' : '0') + ')',
             }}
         >
             <Text
                 style={{
-                    margin: 0.03,
-                    fontSize: 0.07,
+                    margin: 0.09,
+                    fontSize: 0.06,
                 }}
             >
                 {props.main}
@@ -84,12 +95,12 @@ const Paragraph = props => (
                 justifyContent: 'center',
             }}>
                 <Text
-                    style={{ textAlign: 'center', fontSize: 0.05 }} 
+                    style={{ textAlign: 'center', fontSize: 0.06 }} 
                 >
                     {props.kpi[0][0]}
                 </Text>
                 <Text
-                    style={{ textAlign: 'center', fontSize: 0.05 }} 
+                    style={{ textAlign: 'center', fontSize: 0.06 }} 
                 >
                     {props.kpi[0][1]}
                 </Text>
@@ -102,12 +113,12 @@ const Paragraph = props => (
                 justifyContent: 'center',
             }}>
                 <Text
-                    style={{ textAlign: 'center', fontSize: 0.05 }} 
+                    style={{ textAlign: 'center', fontSize: 0.06 }} 
                 >
                     {props.kpi[1][0]}
                 </Text>
                 <Text
-                    style={{ textAlign: 'center', fontSize: 0.05 }} 
+                    style={{ textAlign: 'center', fontSize: 0.06 }} 
                 >
                     {props.kpi[1][1]}
                 </Text>
@@ -121,12 +132,12 @@ const Paragraph = props => (
                 justifyContent: 'center',
             }}>
                 <Text
-                    style={{ textAlign: 'center', fontSize: 0.05 }} 
+                    style={{ textAlign: 'center', fontSize: 0.06 }} 
                 >
                     {props.kpi[2][0]}
                 </Text>
                 <Text
-                    style={{ textAlign: 'center', fontSize: 0.05 }} 
+                    style={{ textAlign: 'center', fontSize: 0.06 }} 
                 >
                     {props.kpi[2][1]}
                 </Text>
@@ -134,6 +145,10 @@ const Paragraph = props => (
         </View>
     </View>
 )
+
+Paragraph.defaultProps = {
+    bg: true,
+}
 
 
 export {

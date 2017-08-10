@@ -63,7 +63,7 @@ export default class Hardrock extends React.Component {
 
         <Page1 
             transform={[
-                {translate: [0.5,1.3,-3]}
+                {translate: [-1,1.8,-3]}
             ]}
         />
         <Page2 

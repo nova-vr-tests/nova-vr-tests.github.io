@@ -15,7 +15,7 @@ import {
   Image,
 } from 'react-vr';
 
-import { Paragraph } from './UI'
+import { Paragraph, Title1, Title2 } from './UI'
 
 export default class Page2 extends React.Component {
   constructor(scene) {
@@ -52,15 +52,9 @@ because at the end of the day it's what makes the difference."
                     width: 1.8,
                 }} 
             >
-                <Text
-                    style={{
-                        color: 'white',
-                        marginBottom: 0.07,
-                        marginTop: 0.09,
-                    }} 
-                >
+                <Title2>
                     Media numbers
-                </Text>          
+                </Title2>
 
                 <Paragraph 
                     main={text}
