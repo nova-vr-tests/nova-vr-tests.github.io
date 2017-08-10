@@ -64,6 +64,45 @@ could handle."
                     ["86 million", "social impressions"]
                 ]}
             />
+
+            <View
+                style={{
+                    flexDirection: 'row',
+                    flex: 1,
+                    marginTop: 0.1,
+                }}
+            >
+                <View
+                    style={{
+                        flex: 1,
+                    }}
+                >
+                    <Text
+                        style={{
+                            fontSize: 0.1,
+                            marginLeft: 0.05,
+                        }}
+                    >
+                        Gross Impressions    
+                    </Text>
+                </View>
+                <View
+                    style={{
+                        flex: 1,
+                        alignItems: 'flex-end',
+                    }}
+                >
+                    <Text
+                        style={{
+                            fontSize: 0.1,
+                            fontWeight: 'bold',
+                            paddingRight: 0.05,
+                        }}
+                    >
+                        201,008,806
+                    </Text>
+                </View>
+            </View>
         </View>
     );
   }
