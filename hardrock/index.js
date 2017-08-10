@@ -17,6 +17,7 @@ import {
 import Page1 from './page1';
 import Page2 from './page2';
 import Orbit from './orbit';
+import Map from './map';
 
 export default class Hardrock extends React.Component {
   constructor(scene) {
@@ -47,17 +48,6 @@ export default class Hardrock extends React.Component {
              ]
          }}
          source={asset('hardrock/bg.jpg')} />   
-        <Page1 
-            transform={[
-                {translate: [0.5,1.3,-3]}
-            ]}
-        />
-        <Page2 
-            transform={[
-                {translate: [1,3,0.7]},
-                {rotateY: 270}
-            ]}
-        />
         <Sphere
             style={{
                 color: 'white',
@@ -70,6 +60,26 @@ export default class Hardrock extends React.Component {
             heightSegments={50}
             widthSegments={50}
         />
+
+        <Page1 
+            transform={[
+                {translate: [0.5,1.3,-3]}
+            ]}
+        />
+        <Page2 
+            transform={[
+                {translate: [1,3,0.7]},
+                {rotateY: 270}
+            ]}
+        />
+        <View>
+            <Map 
+                transform={[
+                    {translate: [-6.0, 6.0, 1]},
+                    {rotateY: 90},
+                ]}
+            />
+        </View>
       </Scene>
     );
   }
