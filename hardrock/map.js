@@ -41,14 +41,23 @@ export default class Map extends React.Component {
                 transform: this.props.transform,
             }} 
         >
-            <Text
+            <View
                 style={{
-                    borderWidth: 0.01,
+                    borderWidth: 0,
                     backgroundColor: 'rgba(255,255,255,0.1)',
                 }} 
             >
-                Elvis Rocks Mexico - Riviera Maya
-            </Text>
+                <Text
+                    style={{
+                        fontSize: 0.17,
+                        marginLeft: 0.6,
+                        marginVertical: 0.05,
+                        borderColor: 'rgba(0,0,0,0)'
+                    }} 
+                >
+                    Elvis Rocks Mexico - Riviera Maya
+                </Text>
+            </View>
             <View
                 style={{
                     borderWidth: 0.01,

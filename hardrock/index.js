@@ -72,14 +72,13 @@ export default class Hardrock extends React.Component {
                 {rotateY: 270}
             ]}
         />
-        <View>
-            <Map 
-                transform={[
-                    {translate: [-6.0, 6.0, 1]},
-                    {rotateY: 90},
-                ]}
-            />
-        </View>
+        <Map 
+            transform={[
+                {translate: [-4.5, 6.2, 0]},
+                {rotateY: 90},
+                {scale: 0.5},
+            ]}
+        />
       </Scene>
     );
   }
