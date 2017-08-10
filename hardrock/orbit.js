@@ -41,7 +41,7 @@ export default class Orbit extends React.Component {
   
   animate() {
     this.setState({
-      alpha: this.state.alpha + 1/20,
+      alpha: this.state.alpha + 1/400,
     })
 
     this.frameHandle = requestAnimationFrame(this.animate);
@@ -49,7 +49,7 @@ export default class Orbit extends React.Component {
 
   getPosition() {
       const { alpha } = this.state;
-      const R = 9000;   // Orbit radius
+      const R = 8000;   // Orbit radius
 
       const e_x = [0, 0, 1];
       const e_y = [1, 0, 0];
@@ -64,15 +64,21 @@ export default class Orbit extends React.Component {
 
   render() {
     return (
-      <View>
+      <View
+        style={{
+          transform: [
+            {rotateZ: 45}
+          ]
+        }}
+      >
           <Sphere
             style={{
                 transform: [
                     {translate: this.getPosition()},
                 ],
-                color: 'red',
+                color: 'white',
             }}
-            radius={ 500 }
+            radius={ 200 }
            /> 
       </View>
     );
