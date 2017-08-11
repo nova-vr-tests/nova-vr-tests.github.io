@@ -56,7 +56,7 @@ could handle."
             </Title2>          
 
             <Paragraph 
-                bg={false}
+                bg={true}
                 main={text}
                 kpi={[
                     ["280 thousands", "contest entries"],

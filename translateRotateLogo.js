@@ -27,7 +27,7 @@ export default class TranslateRotateLogo extends React.Component {
     
     this.state = {
       t: -95,
-      alpha: 0,
+      alpha: 90,
     };
 
     this.animate = this.animate.bind(this);
@@ -49,11 +49,11 @@ export default class TranslateRotateLogo extends React.Component {
   animate() {
     this.setState({
       t: this.state.t - this.state.t * 1/20,
-      alpha: this.state.alpha + 5,
+      alpha: this.state.alpha - 0.7,
     })
 
     // if (this.state.t < 0 && this.state.alpha < 180)
-    // if (this.state.alpha < 360)
+    if (this.state.alpha > 0)
       this.frameHandle = requestAnimationFrame(this.animate);
   }
 
@@ -74,7 +74,7 @@ export default class TranslateRotateLogo extends React.Component {
 
     // Parametrized line
     let transform = addTransforms([
-      // localRotateZ(this.state.alpha, CG),
+      localRotateZ(this.state.alpha, CG),
       translateThruLine(origin, dirVect, this.state.t),
     ]);
 

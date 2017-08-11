@@ -18,6 +18,10 @@ import Page2 from './page2';
 import Orbit from './orbit';
 import Map from './map';
 
+/**
+ * Level 1 headers 
+ * @param {object} props children
+ */
 const Title1 = props => (
     <Text
         style={{
@@ -38,6 +42,10 @@ Title1.defaultProps = {
     children: "",
 }
 
+/**
+ * Lever 2 headers 
+ * @param {object} props children 
+ */
 const Title2 = props => (
     <Text
         style={{
@@ -60,6 +68,12 @@ Title2.defaultProps = {
     children: "",
 }
 
+/**
+ * 
+ * @param {boolean} bg Should show paragram background 
+ * @param {string} main Main textual content
+ * @param {string[][]} kpi KPI information under textual content
+ */
 const Paragraph = props => (
     <View
         style={{
