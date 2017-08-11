@@ -62,6 +62,7 @@ export default class Unilever extends React.Component {
       timer: 0,
     };
 
+    this.getHardRock = this.getHardRock.bind(this);
   }
 
   componentDidMount() {
@@ -89,13 +90,8 @@ export default class Unilever extends React.Component {
       this.frameHandle = requestAnimationFrame(this.animate);
   }
 
-  render() {
+  getHardRock() {
     return (
-      // <Zoomlogo modelNames={ this.modelNames } CGs={ this.CGs } />
-      // <Translatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
-      // <TranslateRotateLogo modelNames={ this.modelNames } CGs={ this.CGs } />
-      // <Rotatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
-
       <View>
         <Model
           source={{
@@ -114,6 +110,16 @@ export default class Unilever extends React.Component {
           <Hardrock />
         </View>
       </View>
+    )
+  }
+
+  render() {
+    return (
+      // <Zoomlogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      // <Translatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      // <TranslateRotateLogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      // <Rotatelogo modelNames={ this.modelNames } CGs={ this.CGs } />
+      this.getHardRock()
     );
   }
 };
