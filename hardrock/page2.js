@@ -89,6 +89,10 @@ all inclusive, while millions enjoyed vicariously. The program earned more than 
                                 width: 1,
                                 height: 1,
                                 borderRadius: 0.1, 
+                                transform: [
+                                    {translate: [0, 0, -2]},
+                                    {scale: 1},
+                                ]
                             }}
                         />
                     </View>
@@ -99,6 +103,10 @@ all inclusive, while millions enjoyed vicariously. The program earned more than 
                                 width: 1,
                                 height: 1,
                                 borderRadius: 0.1, 
+                                transform: [
+                                    {translate: [0, 0, 0]},
+                                    {scale: 1},
+                                ]
                             }}
                         />
                     </View>
@@ -115,7 +123,11 @@ all inclusive, while millions enjoyed vicariously. The program earned more than 
                         style={{
                             width: 1,
                             height: 1,
-                            borderRadius: 0.1, 
+                            borderRadius: 0.1,
+                            transform: [
+                                {translate: [0, 0, -1]},
+                                {scale: 1},
+                            ]
                         }}
                     />
                 </View>

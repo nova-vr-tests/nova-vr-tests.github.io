@@ -69,7 +69,7 @@ export default class Map extends React.Component {
                 <Model
                     source={{ obj: asset('hardrock/map.obj') }}
                     style={{
-                        color: 'white',
+                        color: 'rgba(255,255,255,0.5)',
                         transform: [
                             {scale: [8, 8, 8]},
                             {translateX: -0.29}
