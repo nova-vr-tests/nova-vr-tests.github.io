@@ -1,0 +1,18 @@
+* NFL prototype
+
+This folder provides implementation of the first prototype for NFL: [[https://www.novamedia.nyc/business-props?post=19][proposal]] 
+
+As of right now, the application allows for setting up players as obj files. An annotation shows up as you get closer and disappears as you go further from the player.
+
+** Screens
+
+[[./img/nfl1.png]]
+[[./img/nfl2.png]]
+
+** Files
+*** js/nfl.ts
+Describes the application logic. See comments for explanation and todos
+
+*** ../nfl.html
+Mountpoint
+

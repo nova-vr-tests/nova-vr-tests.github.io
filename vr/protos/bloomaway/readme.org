@@ -1,0 +1,85 @@
+* Bloomaway
+
+** Introduction
+   
+This project will implement a basic prototype for [[http://www.novamedia.nyc/products?post=1][Bloomaway]] in WebVR. It will use the [[http://threejs.org/][THREE.js]] layer of abstraction for almost all low level graphic programming.
+
+** Code presentation
+   
+The code is separated in a few files to make it easier to scale with respect to maintainability. The application mount point is index.html, and the associated javascript files are located in the js/ folder along with other THREE.js dependencies.
+
+All javascript files are well documented, please have a look at them to grasp a better understanding of the application architecture.
+
+*** index.html
+    
+Application mountpoint, it setups up the [[https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model][DOM]] for Bloomaway and calls the javascript files.
+
+*** bloomaway.js
+
+Bloomaway mountpoint. It defines the Bloomaway class and instantiates it. This is our high level application class responsible for managing scenes and cameras among other things.
+
+*** torus.js
+    
+This file defines the Torus, which is our our application's UI. It provides the map for transportation and a way to create buttons over this map that send you to a particular scene when clicked over.
+
+*** camera.js
+
+Responsible for instantiating a camera which is what the user will see. This file defines a Camera class which is instantiated from the Bloomaway class. A Bloomaway class calls the camera class with parameters necessary for connecting both files since the world camera and the world are in 2 separate classes (Camera and Bloomaway respectively).
+
+*** controls.js
+
+Defines a class responsible for control of the camera. So far it's a very easy implementation that works with the mouse and keyboard. We will modify this file to include VR headset orientation and controllers. So far, it's convenient enough for development.
+
+*** helpers.js
+
+This file defines various functions helpful to the above classes but were cluttering the code too much and therefore have been refactored into their own file. Currently this file defines THREE.js abstractions for model imports more tailored to the Bloomaway classes
+
+*** sceneData.js
+
+Contains scene asset interfaces for bloomaway. Each scene is defined by a url an optional transformation
+
+*** button.js
+
+Defines a class allowing for the creating button. Does not mount the button into the scene, this is left for the user the do.
+
+** Running the application
+
+Clone this git repo, cd into the bloomaway folder and open index.html in Firefox. Chrome will currently not work:
+
+#+begin_src bash
+git clone git@github.com:mecs13/nova-protos.git
+cd nova-protos/bloomaway
+firefox index.html
+#+end_src
+
+*** Controls
+
+Activating:
+- To activate controls, click on the canvas. Your mouse pointer will disappear
+- To deactivate controls, press escape. Your mouse pointer will reappear
+
+Moving around:
+- Arrow keys
+- A, S, D, W
+
+Looking around:
+- the mouse
+
+** TODOS
+
+They are defined at the top of bloomaway.js, camera.js, and controls.js
+
+** Screenshots
+
+
+| Description                | Schreenshots              |
+|----------------------------+---------------------------|
+| Inspiration                | [[./img/bloomaway-bg.jpg]]    |
+| Photogrammetry castle room | [[./img/bloomaway-proto.png]] |
+| Photogrammetry museum      | [[./img/museum.png]]          |
+| Photogrammetry bedroom     | [[./img/bedroom1.png]]        |
+| Photogrammetry building 1  | [[./img/uni1.png]]            |
+| Photogrammetry building 2  | [[./img/uni2.png]]            |
+| Photogrammetry building 2  | [[./img/uni3.png]]            |
+| 3D houses                  | [[./img/proto-3D.png]]        |
+| 3D mall                    | [[./img/mall.png]]            |

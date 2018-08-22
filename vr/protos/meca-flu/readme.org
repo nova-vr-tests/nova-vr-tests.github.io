@@ -1,0 +1,32 @@
+* Fluid Mechanics
+  
+Spec.: [[./WEB XR 3D fluid mecanics.pdf]]
+
+** Generating the surface
+
+1. [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L115][Create]] a plane using Three.js 
+2. [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L77][Calculate displacements]] of the vertices on this plane along a function to shape the plane
+3. [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L34][Update]] the geometry in the vertex shader.
+
+   
+** Scaling and rotating the surface
+
+1. [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L35][Scaling in shader code]]
+2. [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L160][Updating]] scaling factor in JS code
+3. [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L159][Updating]] plane rotating in JS
+
+** UV mapping of the texture
+
+| UV maps designed to repeat texture over surface | UV map designed to stretch texture over surface |
+|-------------------------------------------------+-------------------------------------------------|
+| [[./img/uvmap--with-tiling.png]]                    | [[./img/uvmap--without-tiling.png]]                 |
+
+On the pictures above, the trick is to modify the 2 first parameters of [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L118][this function]] from `(1, 1)` which stretches the textures to (9, 9) which tiles it 9 by 9 times. [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L102][This lines]] handles the way the texture repeats (check out wrapping modes on the following [[https://threejs.org/docs/#api/constants/Textures][page]].
+
+Here is a particularly impressive demo of UV mapping a video on cubes:
+- [[https://threejs.org/examples/?q=video#webgl_materials_video][Demo]]
+- [[https://github.com/mrdoob/three.js/blob/master/examples/webgl_materials_video.html#L203][Code]]
+
+*** Shader code
+
+The mapping of the texture on the UVs can be found [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L45][here]].

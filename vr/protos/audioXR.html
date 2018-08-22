@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>three.js webgl - custom attributes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+
+<body>
+    <!-- WEBGL mountpoint -->
+    <div id="container" style="display"></div>
+
+    <!-- audio mountpoint -->
+    <audio id="audio" controls>
+        <source src="audioXR/audio/ledzep.ogg" type="audio/ogg">
+        <source src="audioXR/audio/ledzep.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Vertex shader -->
+    <script type="x-shader/x-vertex" id="vertexshader">
+     uniform float amplitude;
+     uniform float scaleFactor;
+     attribute float displacement;
+     varying vec2 vUv;
+
+     void main() {
+         vUv = uv;
+
+         mat3 scaleZ = mat3(
+            vec3(1, 0, 0),
+            vec3(0, 1, 0),
+            vec3(0, 0, scaleFactor)
+         );
+
+
+         vec3 newPosition = position + amplitude * normal * vec3( displacement );
+
+         vec3 newPosition2 = scaleZ * ( newPosition );
+         gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition2, 1.0 );
+     }
+    </script>
+
+    <!-- Fragment shader -->
+    <script type="x-shader/x-fragment" id="fragmentshader">
+     varying vec2 vUv;
+     uniform sampler2D texture;
+     void main() {
+         gl_FragColor = texture2D(texture, vUv);
+     }
+    </script>
+
+    <!-- JS setup code -->
+    <script src="./builds/audioXR.js" type="module"></script>
+</body>
+</html>

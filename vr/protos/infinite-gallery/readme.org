@@ -1,0 +1,5 @@
+* Infinite Gallery
+
+This folder provides implementation of the first prototype for infinite gallery: http://www.novamedia.nyc/products?post=3
+
+[[https://novaxrmedia.s3.us-east-2.amazonaws.com/products_bgs/Background_infinite_gallery_3.png]]

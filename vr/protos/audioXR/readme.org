@@ -1,0 +1,15 @@
+* AudioXR
+
+AudioXR is a music visualizer the works on the web. Currently, it uses the [[https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API][Web Audio API]] to read a song, sample its frequencies using a [[https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API][Fast Fourier Transform]].
+
+** Shader code
+   
+- map the texture onto the sphere
+- update displacement of sphere vertices with respected to captured audio frequencies.
+
+The mapping of the texture on the UVs can be found [[https://github.com/mecs13/nova-protos/blob/47323c5de0a32cf3fac10884ad820ed2c989f6bb/meca-flu/index.html#L45][here]].
+
+*** Generating the sphere
+   
+- Use THREE.js to generate a sphere geometry. The displacement function displaces the geometry's vertices based on audio frequencies.
+
