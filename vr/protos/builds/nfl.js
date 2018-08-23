@@ -4681,6 +4681,7 @@ var VRControls = /** @class */ (function (_super) {
         _this.controller1 = _this.renderer.vr.getController(0);
         _this.controller1.addEventListener('selectstart', function () { return console.log('start'); });
         _this.controller1.addEventListener('selectend', function () { return console.log('end'); });
+        _this.scene.add(_this.controller1);
         return _this;
     }
     VRControls.prototype.onPointerRestricted = function () {
