@@ -4817,11 +4817,11 @@ var Controls = /** @class */ (function () {
         };
         // Hook pointer lock state change events
         document.addEventListener('pointerlockchange', pointerlockchange, false);
-        element.addEventListener('click', function () {
-            // Ask the browser to lock the pointer
-            element.requestPointerLock = element.requestPointerLock;
-            element.requestPointerLock();
-        }, false);
+        // element.addEventListener('click', () => {
+        //     // Ask the browser to lock the pointer
+        //     element.requestPointerLock = element.requestPointerLock
+        //     element.requestPointerLock()
+        // }, false)
         /* KeyboardEvents */
         document.addEventListener('keydown', this.onKeyDown, false);
         document.addEventListener('keyup', this.onKeyUp, false);
