@@ -4972,6 +4972,8 @@ var VRControls = /** @class */ (function (_super) {
             document.exitPointerLock();
         }
     };
+    VRControls.prototype.update = function () {
+    };
     return VRControls;
 }(Controls));
 exports.VRControls = VRControls;
