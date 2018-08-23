@@ -4647,6 +4647,16 @@ exports["default"] = Camera;
    + modify the direction vector in Controls.update to move in the axis of the camera.
  - Hook it up with VR inputs (match headset positioning and track controllers)
 */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 exports.__esModule = true;
 var THREE = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
 var PointerLockControls_js_1 = __webpack_require__(/*! ../THREE/PointerLockControls.js */ "./THREE/PointerLockControls.js");
@@ -4834,6 +4844,34 @@ var Controls = /** @class */ (function () {
     };
     return Controls;
 }());
+var VRControls = /** @class */ (function (_super) {
+    __extends(VRControls, _super);
+    function VRControls(camera, scene, renderer) {
+        var _this = _super.call(this, camera, scene) || this;
+        _this.renderer = renderer;
+        _this.renderer.vr.enabled = true;
+        window.addEventListener('vrdisplaypointerrestricted', _this.onPointerRestricted, false);
+        window.addEventListener('vrdisplaypointerunrestricted', _this.onPointerUnrestricted, false);
+        return _this;
+    }
+    VRControls.prototype.onPointerRestricted = function () {
+        var pointerLockElement = this.renderer.domElement;
+        if (pointerLockElement && typeof (pointerLockElement.requestPointerLock) === 'function') {
+            pointerLockElement.requestPointerLock();
+        }
+    };
+    VRControls.prototype.onPointerUnrestricted = function () {
+        var currentPointerLockElement = document.pointerLockElement;
+        var expectedPointerLockElement = this.renderer.domElement;
+        if (currentPointerLockElement
+            && currentPointerLockElement === expectedPointerLockElement
+            && typeof (document.exitPointerLock) === 'function') {
+            document.exitPointerLock();
+        }
+    };
+    return VRControls;
+}(Controls));
+exports.VRControls = VRControls;
 exports["default"] = Controls;
 
 
@@ -5076,7 +5114,6 @@ var Super = /** @class */ (function () {
         console.log(THREE, WebVR_js_1["default"]);
         document.body.appendChild(WebVR_js_1["default"].createButton(this.renderer));
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.vr.enabled = true;
         this.container.appendChild(this.renderer.domElement);
     };
     Super.prototype.initScene = function () {
