@@ -5134,7 +5134,8 @@ var Super = /** @class */ (function () {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     };
     Super.prototype.animate = function () {
-        requestAnimationFrame(this.animate);
+        // requestAnimationFrame(this.animate)
+        this.renderer.setAnimationLoop(this.animate);
         this.renderer.render(this.scene, this.camera.getInstance());
         this.controls.update();
     };
