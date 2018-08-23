@@ -4760,6 +4760,7 @@ var __extends = (this && this.__extends) || (function () {
 exports.__esModule = true;
 var THREE = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
 var PointerLockControls_js_1 = __webpack_require__(/*! ../THREE/PointerLockControls.js */ "./THREE/PointerLockControls.js");
+var helpers_js_1 = __webpack_require__(/*! ./helpers.js */ "./engine/helpers.js");
 /**
  * Handles instantiating a THREE.PointerLockControls instance and hooking it up to the scene, camera, and DOM events
  * @param {THREE.Camera} camera - Camera to attach controls to
@@ -4959,6 +4960,9 @@ var VRControls = /** @class */ (function (_super) {
         _this.controller1.addEventListener('selectstart', function () { return console.log('start'); });
         _this.controller1.addEventListener('selectend', function () { return console.log('end'); });
         _this.scene.add(_this.controller1);
+        helpers_js_1.getObj('./obj', 'handle', function (obj) {
+            _this.controller1.add(obj);
+        }, {});
         return _this;
     }
     VRControls.prototype.onPointerRestricted = function () {
