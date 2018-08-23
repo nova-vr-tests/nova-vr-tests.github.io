@@ -4685,6 +4685,7 @@ var VRControls = /** @class */ (function (_super) {
         _this.scene.add(_this.controller1);
         helpers_js_1.getObj('./engine/obj', 'handle', function (obj) {
             _this.controller1.add(obj);
+            console.log("foobarbaz");
         }, {});
         return _this;
     }
