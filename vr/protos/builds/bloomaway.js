@@ -4962,12 +4962,7 @@ var VRControls = /** @class */ (function (_super) {
         _this.scene.add(_this.controller1);
         helpers_js_1.getObj('./engine/obj', 'handle', function (obj) {
             _this.controller1.add(obj);
-        }, {
-            rotation: {
-                axis: new THREE.Vector3(1, 0, 0),
-                angle: 3 * Math.PI / 2
-            }
-        });
+        }, {});
         return _this;
     }
     VRControls.prototype.onPointerRestricted = function () {
