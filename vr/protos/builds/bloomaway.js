@@ -4233,7 +4233,7 @@ var Bloomaway = /** @class */ (function (_super) {
     };
     Bloomaway.prototype.initScene = function () {
         _super.prototype.initScene.call(this);
-        this.updateScene('king');
+        this.updateScene('stadium');
     };
     /**
     * Instantiates a Torus and creates buttons allowing for changing scenes
