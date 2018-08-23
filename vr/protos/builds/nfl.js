@@ -4680,6 +4680,7 @@ var VRControls = /** @class */ (function (_super) {
         return _this;
     }
     VRControls.prototype.onPointerRestricted = function () {
+        console.log(this, this.renderer);
         var pointerLockElement = this.renderer.domElement;
         if (pointerLockElement && typeof (pointerLockElement.requestPointerLock) === 'function') {
             pointerLockElement.requestPointerLock();
