@@ -4850,10 +4850,10 @@ var VRControls = /** @class */ (function (_super) {
         var _this = _super.call(this, camera, scene) || this;
         _this.renderer = renderer;
         _this.renderer.vr.enabled = true;
-        window.addEventListener('vrdisplaypointerrestricted', _this.onPointerRestricted, false);
-        window.addEventListener('vrdisplaypointerunrestricted', _this.onPointerUnrestricted, false);
         _this.onPointerRestricted = _this.onPointerRestricted.bind(_this);
         _this.onPointerUnrestricted = _this.onPointerUnrestricted.bind(_this);
+        window.addEventListener('vrdisplaypointerrestricted', _this.onPointerRestricted, false);
+        window.addEventListener('vrdisplaypointerunrestricted', _this.onPointerUnrestricted, false);
         return _this;
     }
     VRControls.prototype.onPointerRestricted = function () {
