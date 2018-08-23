@@ -4683,9 +4683,16 @@ var VRControls = /** @class */ (function (_super) {
         _this.controller1.addEventListener('selectstart', function () { return console.log('start'); });
         _this.controller1.addEventListener('selectend', function () { return console.log('end'); });
         _this.scene.add(_this.controller1);
+        var opts = {
+            rotation: {
+                axis: new THREE.Vector3(1, 0, 0),
+                angle: 3 * Math.PI / 2
+            }
+        };
+        console.log(opts);
         helpers_js_1.getObj('./engine/obj', 'handle', function (obj) {
             _this.controller1.add(obj);
-        }, {});
+        }, opts);
         return _this;
     }
     VRControls.prototype.onPointerRestricted = function () {
@@ -4812,6 +4819,9 @@ var getObj = function getObj(path, name) {
 
       // Scale model
       object.scale.set(options.scale.x, options.scale.y, options.scale.z);
+
+      object.rotateOnAxis(options.rotation.axis, options.rotation.angle);
+      console.log(object);
 
       // Pass object to user callback
       callback(object);
