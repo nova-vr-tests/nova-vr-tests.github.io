@@ -5157,7 +5157,7 @@ var Super = /** @class */ (function () {
         this.initLight();
         //innitializing camera of bloomaway class
         this.camera = new camera_1["default"](this.scene);
-        this.controls = new controls_1["default"](this.camera.getInstance(), this.scene);
+        this.controls = new controls_1.VRControls(this.camera.getInstance(), this.scene, this.renderer);
     };
     Super.prototype.initDOM = function () {
         this.container = document.createElement('div');
