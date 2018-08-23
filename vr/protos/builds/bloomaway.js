@@ -4965,7 +4965,7 @@ var VRControls = /** @class */ (function (_super) {
         }, {
             rotation: {
                 axis: new THREE.Vector3(1, 0, 0),
-                angle: Math.PI / 2
+                angle: -Math.PI / 2
             }
         });
         return _this;
